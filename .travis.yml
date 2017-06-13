@@ -1,0 +1,18 @@
+language: java
+dist: trusty
+sudo: required
+jdk:
+  - oraclejdk8
+
+env:
+  - SPRING_PROFILES_ACTIVE=travis
+
+services:
+  - postgresql
+  - rabbitmq
+
+addons:
+  postgresql: "9.6"
+
+script:
+  - ./gradlew bootRepackage
